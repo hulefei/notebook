@@ -16,7 +16,7 @@ class ChatGPTDownloader:
         # 检查请求是否成功，HTTP 状态码 200 表示成功
         if response.status_code == 200:
             self.content = response.text
-            self.content = self.content.replace("/_next/static", "https://raw.githubusercontent.com/hulefei/notebook/main/_next/static")
+            # self.content = self.content.replace("/_next/static", "../_next/static")
         else:
             print("Failed to download the page.")
         self.title = self.get_title()
@@ -67,6 +67,6 @@ class IndexGenerator:
 
 if __name__ == "__main__":
     ChatGPTDownloader("https://chat.openai.com/share/0d64e6ad-71fd-4082-8f2f-e5ab25c92e05", "UE").save()
-    # ChatGPTDownloader("https://chat.openai.com/share/d312c52c-fe55-44a1-8f0d-f8547f74f36f", "Linux").save()
+    ChatGPTDownloader("https://chat.openai.com/share/d312c52c-fe55-44a1-8f0d-f8547f74f36f", "Linux").save()
     IndexGenerator().generate()
 
