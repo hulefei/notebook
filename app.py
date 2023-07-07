@@ -16,7 +16,7 @@ class ChatGPTDownloader:
         # 检查请求是否成功，HTTP 状态码 200 表示成功
         if response.status_code == 200:
             self.content = response.text
-            self.content = self.content.replace("/_next/static", "../_next/static")
+            self.content = self.content.replace("/_next/static", "https://raw.githubusercontent.com/hulefei/notebook/main/_next/static")
         else:
             print("Failed to download the page.")
         self.title = self.get_title()
