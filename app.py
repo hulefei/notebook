@@ -16,8 +16,16 @@ class ChatGPTDownloader:
         # 检查请求是否成功，HTTP 状态码 200 表示成功
         if response.status_code == 200:
             self.content = response.text
-            self.content = self.content.replace("/_next/static/css", "/css")
-            self.content = self.content.replace("/_next/static/chunks", "/js/chunks")
+            self.content = self.content.replace("/_next/static/css", "https://hulefei.github.io/css")
+            self.content = self.content.replace("/_next/static/chunks/pages/_app-d3c65a981101e89b.js",
+                                                "https://hulefei.github.io/js/chunks/pages/app-d3c65a981101e89b.js")
+            self.content = self.content.replace("/_next/static/chunks", "https://hulefei.github.io/js/chunks")
+            self.content = self.content.replace("/_next/static/DWP_u3zVBg1e7X-f6lt0k/_buildManifest.js",
+                                                "https://hulefei.github.io/js/DWP_u3zVBg1e7X-f6lt0k/buildManifest.js")
+            self.content = self.content.replace("/_next/static/DWP_u3zVBg1e7X-f6lt0k/_ssgManifest.js",
+                                                "https://hulefei.github.io/js/DWP_u3zVBg1e7X-f6lt0k/ssgManifest.js")
+
+
         else:
             print("Failed to download the page.")
         self.title = self.get_title()
@@ -70,4 +78,3 @@ if __name__ == "__main__":
     ChatGPTDownloader("https://chat.openai.com/share/0d64e6ad-71fd-4082-8f2f-e5ab25c92e05", "UE").save()
     ChatGPTDownloader("https://chat.openai.com/share/d312c52c-fe55-44a1-8f0d-f8547f74f36f", "Linux").save()
     IndexGenerator().generate()
-
