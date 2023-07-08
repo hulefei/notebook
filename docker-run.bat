@@ -1,0 +1,1 @@
+docker run -e URL=https://chat.openai.com/share/0d64e6ad-71fd-4082-8f2f-e5ab25c92e05 -e CATEGORY=UE hulefei/notebook

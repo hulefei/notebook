@@ -1,6 +1,6 @@
 import requests
 import os
-import argparse
+from utils import get_variable
 from bs4 import BeautifulSoup
 
 
@@ -74,25 +74,15 @@ class IndexGenerator:
 
 
 if __name__ == "__main__":
-    # 创建解析器
-    parser = argparse.ArgumentParser(description='这是一个命令行参数解析示例')
-    # 添加参数
-    parser.add_argument('--url', help='chatgpt url')
-    parser.add_argument('--category', help='url category')
-    # 解析命令行参数
-    args = parser.parse_args()
-
-    # 获取参数值
-    arg_url = args.url
-    arg_category = args.category
+    arg_url, arg_category = get_variable(["URL", "CATEGORY"])
 
     assert arg_url is not None
     assert arg_category is not None
 
     print(arg_url)
     print(arg_category)
-
-    # ChatGPTDownloader("https://chat.openai.com/share/0d64e6ad-71fd-4082-8f2f-e5ab25c92e05", "UE").save()
-    # ChatGPTDownloader("https://chat.openai.com/share/d312c52c-fe55-44a1-8f0d-f8547f74f36f", "Linux").save()
+    #
+    # # ChatGPTDownloader("https://chat.openai.com/share/0d64e6ad-71fd-4082-8f2f-e5ab25c92e05", "UE").save()
+    # # ChatGPTDownloader("https://chat.openai.com/share/d312c52c-fe55-44a1-8f0d-f8547f74f36f", "Linux").save()
     ChatGPTDownloader(arg_url, arg_category).save()
     IndexGenerator().generate()
