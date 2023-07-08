@@ -4,7 +4,6 @@ LABEL authors="lefeihu"
 WORKDIR /app
 
 COPY . .
-COPY ./*.txt .
 
 RUN python3 --version
 

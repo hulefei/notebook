@@ -1,4 +1,4 @@
-echo $1
-echo $2
-
-docker run -e URL=$1 -e CATEGORY=$2 hulefei/notebook
+docker run -e URL=$1 -e CATEGORY=$2 \
+-v /data/home/lefeihu/documents/notebook/results:/app/results  \
+-v /data/home/lefeihu/documents/notebook:/app  \
+hulefei/notebook
