@@ -35,16 +35,15 @@ class ChatGPTDownloader:
         # 查找 title 标签
         return soup.title.string
 
-    def save(self, save_dir):
+    def save(self):
         self.download()
-        os.makedirs(f"{save_dir}/{self.category}", exist_ok=True)
-        with open(f"{save_dir}/{self.category}/{self.title}.html", 'w', encoding="utf-8") as f:
+        os.makedirs(f"{self.category}", exist_ok=True)
+        with open(f"{self.category}/{self.title}.html", 'w', encoding="utf-8") as f:
             f.write(self.content)
 
 
 class IndexGenerator:
-    def __init__(self, save_dir):
-        self.save_dir = save_dir
+    def __init__(self):
         self.template = ""
         self.index_content = ""
         self.list_content = ""
@@ -59,13 +58,13 @@ class IndexGenerator:
             f.write(self.index_content)
 
     def generate_list_content(self):
-        for dir_name in os.listdir(f"{os.getcwd()}/{self.save_dir}"):
-            dir_path = f"{os.getcwd()}/{self.save_dir}/{dir_name}"
+        for dir_name in os.listdir(f"{os.getcwd()}"):
+            dir_path = f"{os.getcwd()}/{dir_name}"
             if os.path.isdir(dir_path) and not dir_name.startswith("_") and not dir_name.startswith("."):
                 local_li = ""
                 for file_name in os.listdir(dir_path):
                     if file_name.endswith(".html"):
-                        local_li += f"<li><a href='{self.save_dir}/{dir_name}/{file_name}'>{file_name}</a></li> \n"
+                        local_li += f"<li><a href='{dir_name}/{file_name}'>{file_name}</a></li> \n"
                 self.list_content += f"<h2>{dir_name}</h2><ul>{local_li}</ul> \n"
 
     def generate_index_content(self):
@@ -86,5 +85,5 @@ if __name__ == "__main__":
     #
     # # ChatGPTDownloader("https://chat.openai.com/share/0d64e6ad-71fd-4082-8f2f-e5ab25c92e05", "UE").save()
     # # ChatGPTDownloader("https://chat.openai.com/share/d312c52c-fe55-44a1-8f0d-f8547f74f36f", "Linux").save()
-    ChatGPTDownloader(arg_url, arg_category).save("results")
-    IndexGenerator("results").generate()
+    ChatGPTDownloader(arg_url, arg_category).save()
+    IndexGenerator().generate()
