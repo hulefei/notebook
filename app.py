@@ -17,14 +17,15 @@ class ChatGPTDownloader:
         # 检查请求是否成功，HTTP 状态码 200 表示成功
         if response.status_code == 200:
             self.content = response.text
-            self.content = self.content.replace("/_next/static/css", "https://hulefei.github.io/css")
-            self.content = self.content.replace("/_next/static/chunks/pages/_app-d3c65a981101e89b.js",
-                                                "https://hulefei.github.io/js/chunks/pages/app-d3c65a981101e89b.js")
-            self.content = self.content.replace("/_next/static/chunks", "https://hulefei.github.io/js/chunks")
-            self.content = self.content.replace("/_next/static/DWP_u3zVBg1e7X-f6lt0k/_buildManifest.js",
-                                                "https://hulefei.github.io/js/DWP_u3zVBg1e7X-f6lt0k/buildManifest.js")
-            self.content = self.content.replace("/_next/static/DWP_u3zVBg1e7X-f6lt0k/_ssgManifest.js",
-                                                "https://hulefei.github.io/js/DWP_u3zVBg1e7X-f6lt0k/ssgManifest.js")
+            self.content = self.content.replace("/_next/static", "https://chat.openai.com/_next/static")
+            # self.content = self.content.replace("/_next/static/css", "https://hulefei.github.io/css")
+            # self.content = self.content.replace("/_next/static/chunks/pages/_app-d3c65a981101e89b.js",
+            #                                     "https://hulefei.github.io/js/chunks/pages/app-d3c65a981101e89b.js")
+            # self.content = self.content.replace("/_next/static/chunks", "https://hulefei.github.io/js/chunks")
+            # self.content = self.content.replace("/_next/static/DWP_u3zVBg1e7X-f6lt0k/_buildManifest.js",
+            #                                     "https://hulefei.github.io/js/DWP_u3zVBg1e7X-f6lt0k/buildManifest.js")
+            # self.content = self.content.replace("/_next/static/DWP_u3zVBg1e7X-f6lt0k/_ssgManifest.js",
+            #                                     "https://hulefei.github.io/js/DWP_u3zVBg1e7X-f6lt0k/ssgManifest.js")
         else:
             print("Failed to download the page.")
         self.title = self.get_title()
@@ -64,7 +65,7 @@ class IndexGenerator:
                 local_li = ""
                 for file_name in os.listdir(dir_path):
                     if file_name.endswith(".html"):
-                        local_li += f"<li><a href='/{self.save_dir}/{dir_name}/{file_name}'>{file_name}</a></li> \n"
+                        local_li += f"<li><a href='{self.save_dir}/{dir_name}/{file_name}'>{file_name}</a></li> \n"
                 self.list_content += f"<h2>{dir_name}</h2><ul>{local_li}</ul> \n"
 
     def generate_index_content(self):
