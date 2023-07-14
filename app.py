@@ -17,7 +17,7 @@ class ChatGPTDownloader:
         # 检查请求是否成功，HTTP 状态码 200 表示成功
         if response.status_code == 200:
             self.content = response.text
-            self.content = self.content.replace("/_next/static", "https://chat.openai.com/_next/static")
+            # self.content = self.content.replace("/_next/static", "https://chat.openai.com/_next/static")
             # self.content = self.content.replace("/_next/static/css", "https://hulefei.github.io/css")
             # self.content = self.content.replace("/_next/static/chunks/pages/_app-d3c65a981101e89b.js",
             #                                     "https://hulefei.github.io/js/chunks/pages/app-d3c65a981101e89b.js")
@@ -63,8 +63,9 @@ class IndexGenerator:
             if os.path.isdir(dir_path) and not dir_name.startswith("_") and not dir_name.startswith("."):
                 local_li = ""
                 for file_name in os.listdir(dir_path):
-                    if file_name.endswith(".html"):
-                        local_li += f"<li><a href='{dir_name}/{file_name}'>{file_name}</a></li> \n"
+                    if file_name.endswith("html"):
+                        base_name, ext = os.path.splitext(file_name)
+                        local_li += f"<li><a href='{dir_name}/{file_name}'>{base_name}</a></li> \n"
                 self.list_content += f"<h2>{dir_name}</h2><ul>{local_li}</ul> \n"
 
     def generate_index_content(self):
@@ -75,15 +76,13 @@ class IndexGenerator:
 
 
 if __name__ == "__main__":
-    arg_url, arg_category = get_variable(["URL", "CATEGORY"])
-
-    assert arg_url is not None
-    assert arg_category is not None
-
-    print(arg_url)
-    print(arg_category)
+    # arg_url, arg_category = get_variable(["URL", "CATEGORY"])
+    # assert arg_url is not None
+    # assert arg_category is not None
+    # print(arg_url)
+    # print(arg_category)
     #
     # # ChatGPTDownloader("https://chat.openai.com/share/0d64e6ad-71fd-4082-8f2f-e5ab25c92e05", "UE").save()
     # # ChatGPTDownloader("https://chat.openai.com/share/d312c52c-fe55-44a1-8f0d-f8547f74f36f", "Linux").save()
-    ChatGPTDownloader(arg_url, arg_category).save()
+    # ChatGPTDownloader(arg_url, arg_category).save()
     IndexGenerator().generate()
