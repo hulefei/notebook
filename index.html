@@ -1,37 +1,44 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>我的网站主页</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <h1>欢迎来到我的网站!</h1>
-    </header>
-    <nav>
-        <h2>Docker</h2><ul></ul> 
-<h2>Linux</h2><ul><li><a href='Linux/Linux目录.html'>Linux目录</a></li> 
-<li><a href='Linux/列出并删除最早的10个文件.html'>列出并删除最早的10个文件</a></li> 
-</ul> 
-<h2>NodeJS</h2><ul><li><a href='NodeJS/npm设置和取消代理.html'>npm设置和取消代理</a></li> 
-</ul> 
-<h2>Other</h2><ul><li><a href='Other/各类证书介绍和使用.html'>各类证书介绍和使用</a></li> 
-</ul> 
-<h2>Python</h2><ul><li><a href='Python/python 特殊方法.html'>python 特殊方法</a></li> 
-</ul> 
-<h2>UE4</h2><ul><li><a href='UE4/定义UE4模块.html'>定义UE4模块</a></li> 
-</ul> 
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的博客</title>
+    <link rel="stylesheet" href="styles.css"> <!-- 样式链接 -->
+</head>
+<body>
 
-    </nav>
-    <main>
-      <p>这是一些介绍文本。</p>
-    </main>
-    <footer>
-      <p>© 2023 我的网站</p>
-    </footer>
-  </body>
+<header>
+    <h1>我的博客</h1>
+</header>
+
+<main>
+    <section class="categories">
+        <h2>分类</h2>
+        <ul>
+            <li><a href="/category/tech">技术</a></li>
+            <li><a href="/category/life">生活</a></li>
+            <li><a href="/category/travel">旅行</a></li>
+            <!-- 更多分类... -->
+        </ul>
+    </section>
+
+    <section class="blog-posts">
+        <h2>最新文章</h2>
+        <article><h3><a href='Linux/Linux目录.html'>Linux目录</a></h3></article> 
+        <article><h3><a href='Linux/列出并删除最早的10个文件.html'>列出并删除最早的10个文件</a></h3></article> 
+        <article><h3><a href='NodeJS/npm设置和取消代理.html'>npm设置和取消代理</a></h3></article> 
+        <article><h3><a href='Other/各类证书介绍和使用.html'>各类证书介绍和使用</a></h3></article> 
+        <article><h3><a href='Python/python 特殊方法.html'>python 特殊方法</a></h3></article> 
+        <article><h3><a href='UE4/定义UE4模块.html'>定义UE4模块</a></h3></article> 
+
+        <!-- 更多文章... -->
+    </section>
+</main>
+
+<footer>
+    <p>版权所有 &copy; 2023 我的博客</p>
+</footer>
+
+</body>
 </html>
