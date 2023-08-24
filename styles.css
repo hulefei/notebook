@@ -9,7 +9,7 @@
 body {
     font-size: 16px;
     line-height: 1.5;
-    background-color: #FAFBFC; /* OpenAI背景色 */
+    background-color: #202123; /* OpenAI背景色 */
     color: #2C2E31; /* OpenAI文本颜色 */
 }
 
@@ -45,7 +45,7 @@ nav a:hover {
 main {
     width: 80%;
     margin: 20px auto;
-    background-color: #FFFFFF;
+    background-color: #343541;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -68,7 +68,7 @@ main {
 
 .categories a {
     text-decoration: none;
-    color: #2C2E31; /* OpenAI文本颜色 */
+    color: #FFFFFF; /* OpenAI文本颜色 */
     padding: 5px 10px;
     border: 1px solid #E4E7EB; /* OpenAI边框颜色 */
     transition: background-color 0.3s;
@@ -89,7 +89,7 @@ main {
 
 .blog-posts h3 a {
     text-decoration: none;
-    color: #2C2E31; /* OpenAI文本颜色 */
+    color: #ececf1; /* OpenAI文本颜色 */
 }
 
 .blog-posts h3 a:hover {
