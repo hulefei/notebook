@@ -3,30 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的博客</title>
+    <title>小冰狼的博客</title>
     <link rel="stylesheet" href="styles.css"> <!-- 样式链接 -->
 </head>
 <body>
 
 <header>
-    <h1>我的博客</h1>
+    <h1>小冰狼的博客</h1>
 </header>
 
 <main>
     <section class="categories">
         <h2>分类</h2>
         <ul>
-            <li><a href="/category/tech">技术</a></li>
-            <li><a href="/category/life">生活</a></li>
-            <li><a href="/category/travel">旅行</a></li>
-            <!-- 更多分类... -->
+%category%
         </ul>
     </section>
 
     <section class="blog-posts">
         <h2>最新文章</h2>
 %hook1%
-        <!-- 更多文章... -->
     </section>
 </main>
 
