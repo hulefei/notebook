@@ -5,7 +5,7 @@ python app.py
 git add .
 git commit -m "update"
 
-git remote set-url origin https://hulefei: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@github.com/hulefei/notebook.git
+git remote set-url origin https://hulefei:%GH_TOKEN%@github.com/hulefei/notebook.git
 git push origin main
 
 timeout /t 60
