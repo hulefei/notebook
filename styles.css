@@ -70,6 +70,7 @@ main {
     list-style-type: none;
     display: flex;
     gap: 10px;
+    flex-wrap: wrap; /* 新增属性，确保子项进行换行 */
 }
 
 .categories a {
