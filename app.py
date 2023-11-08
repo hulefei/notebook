@@ -22,12 +22,8 @@ class IndexGenerator:
             f.write(self.generate_content(f"index"))
 
         for dir_name in self.list_dir:
-            if os.path.exists(f"{dir_name}.html"):
-                with open(f"{dir_name}.html", 'w', encoding="utf-8") as f:
-                    f.write(self.generate_content(f"{dir_name}"))
-            if os.path.exists(f"{dir_name}.htm"):
-                with open(f"{dir_name}.htm", 'w', encoding="utf-8") as f:
-                    f.write(self.generate_content(f"{dir_name}"))
+            with open(f"{dir_name}.html", 'w', encoding="utf-8") as f:
+                f.write(self.generate_content(f"{dir_name}"))
 
     def init_dir_list(self):
         for dir_name in os.listdir(f"{os.getcwd()}"):
