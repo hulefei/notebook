@@ -41,7 +41,7 @@ class IndexGenerator:
             if os.path.isdir(dir_path) and not dir_name.startswith("_") and not dir_name.startswith("."):
                 for file_name in os.listdir(dir_path):
                     if file_name.endswith("html") or file_name.endswith("htm"):
-                        pattern = r"^(\d{4}-\d{2}-\d{2})(.*)\.[htm|html]"
+                        pattern = r"^(\d{4}-\d{2}-\d{2}) (.*)\.[htm|html]"
                         # 使用search方法来查找匹配的字符串
                         match = re.search(pattern, file_name)
                         if match:
@@ -79,7 +79,7 @@ class IndexGenerator:
         local_content = ""
         for article in articles:
             local_content += "        <article>"
-            local_content += f"<h3><a href='{article['category']}/{article['date']}{article['title']}{article['ext']}'>{article['title']}</a></h3>"
+            local_content += f"<h3><a href='{article['category']}/{article['date']} {article['title']}{article['ext']}'>{article['title']}</a></h3>"
             local_content += "<div class='post-metadata'>"
             local_content += f"<span class='category-tag'>{article['category']}</span>"
             local_content += f"<p class='post-date'>发布日期: {article['date']}</p>"
