@@ -75,4 +75,4 @@ class IndexGenerator:
 
 if __name__ == "__main__":
     IndexGenerator().generate()
-    # print(IndexGenerator().list_article)
+    print(IndexGenerator().list_article)
