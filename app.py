@@ -20,9 +20,13 @@ class IndexGenerator:
             f.write(self.generate_content(f"index"))
 
         for dir_name in self.list_dir:
-            with open(f"{dir_name}.html", 'w', encoding="utf-8") as f:
-                f.write(self.generate_content(f"{dir_name}"))
-
+            if os.path.exists(f"{dir_name}.html"):
+                with open(f"{dir_name}.html", 'w', encoding="utf-8") as f:
+                    f.write(self.generate_content(f"{dir_name}"))
+            if os.path.exists(f"{dir_name}.htm"):
+                with open(f"{dir_name}.htm", 'w', encoding="utf-8") as f:
+                    f.write(self.generate_content(f"{dir_name}"))
+            
     def init_dir_list(self):
         for dir_name in os.listdir(f"{os.getcwd()}"):
             dir_path = f"{os.getcwd()}/{dir_name}"
@@ -34,12 +38,13 @@ class IndexGenerator:
             dir_path = f"{os.getcwd()}/{dir_name}"
             if os.path.isdir(dir_path) and not dir_name.startswith("_") and not dir_name.startswith("."):
                 for file_name in os.listdir(dir_path):
-                    if file_name.endswith("html"):
+                    if file_name.endswith("html") or file_name.endswith("htm"):
                         base_name, ext = os.path.splitext(file_name)
                         article_obj = {
                             "title": base_name,
                             "date": "2020-01-01",
-                            "category": dir_name
+                            "category": dir_name,
+                            "ext": ext,
                         }
                         self.list_article.append(article_obj)
 
@@ -53,7 +58,7 @@ class IndexGenerator:
         local_content = ""
         for article in articles:
             local_content += "        <article>"
-            local_content += f"<h3><a href='{article['category']}/{article['title']}.html'>{article['title']}</a></h3>"
+            local_content += f"<h3><a href='{article['category']}/{article['title']}{article['ext']}'>{article['title']}</a></h3>"
             local_content += "<div class='post-metadata'>"
             local_content += f"<span class='category-tag'>{article['category']}</span>"
             local_content += f"<p class='post-date'>发布日期: {article['date']}</p>"
